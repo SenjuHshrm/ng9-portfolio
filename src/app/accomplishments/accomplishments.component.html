@@ -1,0 +1,16 @@
+<div class='container mat-elevation-z8' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='10px'>
+  <div class='item item-1' fxFlex='100%'>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Accomplishments</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf='xAccmp'>
+        <div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='10px'>
+          <div class='item item-1 con' fxFlex='100%' *ngFor='let accmp of xAccmp' fxLayoutAlign='center'>
+            <p class='sch'><a href='{{ accmp.url }}' target='_blank'>{{ accmp.rep }}</a></p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

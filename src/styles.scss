@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'CenturyGothic';
+  src: url('/assets/CenturyGothic.ttf');
+}
+
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: 'CenturyGothic');
+
+@include mat-core($custom-typography);
+
+$portfolio-primary: mat-palette($mat-indigo);
+$portfolio-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$portfolio-warn: mat-palette($mat-red);
+
+$portfolio-theme: mat-light-theme($portfolio-primary, $portfolio-accent, $portfolio-warn);
+
+@include angular-material-theme($portfolio-theme);
+
+
+html { height: 100%; }
+body { margin: 20px auto; max-width: 800px;font-family: Roboto, "Helvetica Neue", sans-serif; }
+.con {
+  background-color: #b39ddb;
+  margin: 3px 3px;
+  width: 100%;
+  border: 0.5px solid black;
+  word-wrap: break-word;
+  .sch {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+  .desc {
+    margin-left: 10px;
+  }
+}

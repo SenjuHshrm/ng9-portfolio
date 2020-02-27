@@ -1,0 +1,74 @@
+<div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutGap='20px'>
+  <div class='item item-1' fxFlex='100%'>
+    <mat-card class='mat-elevation-z8'>
+      <mat-card-header>
+        <div mat-card-avatar class='profile-img'></div>
+        <mat-card-title>{{ xinfo.first_name + ' ' + xinfo.middle_name.charAt(0) + '. ' + xinfo.last_name }}</mat-card-title>
+        <mat-card-subtitle>{{ xinfo.title }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src='./assets/banner.png' class='mat-elevation-z8'>
+      <mat-card-content>
+        <br>
+        <div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='row' fxLayoutAlign='center' fxLayoutGap='5px'>
+          <mat-card class='item item-1 mat-elevation-z8' fxFlex='49%'>
+            <mat-card-header>
+              <mat-card-title>Basic Information</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Age: {{ xinfo.age }}</p>
+              <p>Location: {{ xinfo.location }}</p>
+              <p>Mobile: <a href='{{ "tel:" + xinfo.mobile[0] }}' target='_blank'>{{ xinfo.mobile[0] }}</a> / <a href='{{ "tel:" + xinfo.mobile[1] }}' target='_blank'>{{ xinfo.mobile[1] }}</a></p>
+              <p>Email: <a href='{{ "mailto:" + xinfo.email[0] }}' target='_blank'>{{ xinfo.email[0] }}</a></p>
+            </mat-card-content>
+          </mat-card>
+          <div class='item item-2' fxFlex='2%'></div>
+          <mat-card class='item item-3 mat-elevation-z8' fxFlex='49%'>
+            <mat-card-header>
+              <mat-card-title>Language Proficiencies</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <canvas id='lngProf' class='lngChart'></canvas>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <br>
+        <div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='10px'>
+          <mat-card class='item item-1 mat-elevation-z8' fxFlex='100%'>
+            <mat-card-header>
+              <mat-card-title>Educational Background</mat-card-title>
+            </mat-card-header>
+            <mat-card-content *ngIf='xEduc'>
+              <div *ngFor='let educ of xEduc'>
+                <div class='con'>
+                  <p class='sch'>{{ educ.school }}</p>
+                  <span class='desc'>{{ educ.loc }}</span><br>
+                  <span class='desc'>{{ educ.sy }}</span><br><br>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <mat-card class='item item-2 mat-elevation-z8' fxFlex='100%'>
+            <mat-card-header>
+              <mat-card-title>Working Experience</mat-card-title>
+            </mat-card-header>
+            <mat-card-content *ngIf='xExp'>
+              <div *ngFor='let wexp of xExp'>
+                <div class='con'>
+                  <p class='sch'>{{ wexp.company }}</p>
+                  <span class='desc'>{{ wexp.location }}</span><br>
+                  <span class='desc'>{{ wexp.title }}</span><br>
+                  <span class='desc'>{{ wexp.duration }}</span><br><br>
+                </div>
+                <div>
+                  <ul>
+                    <li *ngFor='let task of wexp.tasks'>{{ task.task }}</li>
+                  </ul>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

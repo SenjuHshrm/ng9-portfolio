@@ -1,0 +1,16 @@
+<div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutGap='10px'>
+  <div class='item item-1' fxFlex='100'>
+    <mat-card class='mat-elevation-z8'>
+      <mat-card-header>
+        <mat-card-title>Other frameworks, libraries and technologies</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf='xSkills'>
+        <div *ngFor='let skill of xSkills'>
+          <div class='con'>
+            <p class='sch'><a href='{{ skill.url }}' target='_blank'>{{ skill.name }}</a></p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

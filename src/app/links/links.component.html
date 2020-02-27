@@ -1,0 +1,18 @@
+<div class='container mat-elevation-z8' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='10px'>
+  <div class='item item-1' fxFlex='100%'>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>You can find me at:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf='xLinks'>
+        <div class='container' fxLayout fxLayout.xs='column' fxLayout.sm='column' fxLayout='column' fxLayoutAlign='center' fxLayoutGap='10px'>
+          <div class='item item-1 con' fxFlex='100%' *ngFor='let link of xLinks' fxLayoutAlign='left center'>
+            <span class='{{ link.class }} desc'></span>
+            <p class='sch'>{{ link.social }}:</p>
+            <p class='sch'><a href='{{ link.url }}' target='_blank'>{{ link.user_name }}</a></p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
